@@ -34,7 +34,7 @@ body{
 .Submit{
   padding: 12px;
   border-radius: 10px;
-  background-color: rgba(216, 211, 211, 0.651);
+  background-color: rgba(216, 211, 211, 0.466);
   cursor: pointer;
   border: 0.5px solid rgb(71, 69, 69);
   color: rgba(0, 0, 0, 0.692); 
@@ -57,3 +57,55 @@ body{
   border-bottom: 2px solid black;
   padding-bottom: 15px;
 }
+
+/* Main sidebar container */
+.slider {
+  width: 70px;
+  height: 87vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-right: 1px solid #ddd;
+}
+
+/* Each group */
+.sliderFirst,
+.sliderSecond,
+.sliderThird,
+.sliderFourth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+/* Divider line after each group except last */
+.sliderFirst::after,
+.sliderSecond::after,
+.sliderThird::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 1px;
+  background-color: #dcdcdc;
+}
+
+/* NavLink style */
+.slider a {
+  text-decoration: none;
+  color: #555;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
