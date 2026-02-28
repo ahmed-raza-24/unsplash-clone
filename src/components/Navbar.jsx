@@ -18,7 +18,7 @@ const Navbar = () => {
         <NavLink to="/Texture">Texture</NavLink>
         <NavLink to="/Film">Film</NavLink>
         <NavLink to="/Architecture">Architecture</NavLink>
-        <NavLink to="/StreetPhotography">StreePhotography</NavLink>
+        <NavLink to="/StreetPhotography">StreetPhotography</NavLink>
       </div>
       <div className='slider'>
         <div className='sliderFirst'>
