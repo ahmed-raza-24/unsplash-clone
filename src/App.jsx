@@ -6,9 +6,9 @@ const App = () => {
   return (
     <div className="layout">
 
-      {/* Sidebar */}
+      {/* Sidebar rendered inside Navbar */}
       <div className="sidebar">
-        <Navbar />
+        {/* slider is rendered inside Navbar */}
       </div>
 
       {/* Main Content */}
