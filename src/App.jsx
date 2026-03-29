@@ -1,24 +1,28 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Featured from './pages/Featured'
+import Wallpapers from './pages/Wallpapers'
+import WallpaperDetail from './pages/WallpaperDetail'
 
 const App = () => {
   return (
     <div className="layout">
 
-      {/* Sidebar rendered inside Navbar */}
-      <div className="sidebar">
-        {/* slider is rendered inside Navbar */}
-      </div>
+      <div className="sidebar"></div>
 
-      {/* Main Content */}
       <div className="main">
         <div className="topbar">
           <Navbar />
         </div>
 
         <div className="pageContent">
-          <Featured />
+          <Routes>
+            <Route path="/"                  element={<Featured />} />
+            <Route path="/Featured"          element={<Featured />} />
+            <Route path="/Wallpapers"        element={<Wallpapers />} />
+            <Route path="/wallpaper/:id"     element={<WallpaperDetail />} />
+          </Routes>
         </div>
       </div>
 

@@ -1,0 +1,310 @@
+/* ============================================
+   Wallpapers Page — wp- scoped styles
+   Matches the cool white & grey theme
+   ============================================ */
+
+/* ===== Page wrapper ===== */
+.wp-page {
+  max-width: 1300px;
+  margin: 0 auto;
+  animation: fadeUp 0.4s ease both;
+}
+
+/* ===== Header ===== */
+.wp-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.wp-header__text {}
+
+.wp-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.wp-subtitle {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* ===== Resolution Filter (top-right) ===== */
+.wp-filter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 3px;
+}
+
+.wp-filter__btn {
+  padding: 5px 12px;
+  border-radius: calc(var(--radius-md) - 2px);
+  border: none;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.wp-filter__btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-hover);
+}
+
+.wp-filter__btn--active {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== Category Pills ===== */
+.wp-cats {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.wp-cat {
+  padding: 6px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.wp-cat:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.wp-cat--active {
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* ===== Featured hero card ===== */
+.wp-featured {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.wp-featured__label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 3px 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ===== Wallpaper Card ===== */
+.wp-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.2s ease;
+}
+
+.wp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-strong);
+}
+
+.wp-card--featured {
+  border-radius: var(--radius-xl);
+}
+
+/* Image placeholder with shimmer */
+.wp-card__img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    var(--bg-tertiary) 30%,
+    var(--bg-hover) 50%,
+    var(--bg-tertiary) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.7s ease infinite;
+}
+
+/* Resolution badge */
+.wp-card__res {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding: 2px 8px;
+  letter-spacing: 0.03em;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hover overlay */
+.wp-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  z-index: 3;
+}
+
+.wp-card__overlay--visible {
+  opacity: 1;
+}
+
+.wp-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.wp-card__author {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+}
+
+.wp-card__stats {
+  display: flex;
+  gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wp-card__actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Buttons */
+.wp-btn {
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.wp-btn--ghost {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+.wp-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.wp-btn--solid {
+  background: #ffffff;
+  color: var(--text-primary);
+}
+
+.wp-btn--solid:hover {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+/* ===== Masonry Grid ===== */
+.wp-grid {
+  columns: 4;
+  column-gap: 14px;
+}
+
+.wp-grid .wp-card {
+  margin-bottom: 14px;
+  break-inside: avoid;
+}
+
+@media (max-width: 1200px) { .wp-grid { columns: 3; } }
+@media (max-width: 860px)  { .wp-grid { columns: 2; } }
+@media (max-width: 480px)  { .wp-grid { columns: 1; } }
+
+/* ===== Empty state ===== */
+.wp-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ===== Animations ===== */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
